@@ -1,0 +1,14 @@
+# 虚构示例（SYNTHETIC）：逐次测量记录，一行一个 JSON
+# 用于演示指标异常检测；err_mm 测距误差(毫米)，rssi_dbm 信号强度
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":12,"rssi_dbm":-70}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":15,"rssi_dbm":-71}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":11,"rssi_dbm":-69}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":14,"rssi_dbm":-72}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":13,"rssi_dbm":-70}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":16,"rssi_dbm":-71}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":12,"rssi_dbm":-70}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":15,"rssi_dbm":-95}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":14,"rssi_dbm":-72}
+{"DUT":"UWB001","FW":"1.2.3","TEST":"ranging","err_mm":13,"rssi_dbm":-71}
+{"DUT":"UWB002","FW":"1.2.3","TEST":"ranging","err_mm":95,"rssi_dbm":-93}
+{"DUT":"UWB002","FW":"1.2.3","TEST":"ranging","err_mm":14,"rssi_dbm":-70}
