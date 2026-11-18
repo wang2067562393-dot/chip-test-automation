@@ -1,0 +1,12 @@
+[project]
+name = "chip-test-automation"
+version = "0.1.0"
+description = "UWB/chip testing notes and stdlib-only log parsing & reporting tools"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "wangliyu", email = "wang2067562393@gmail.com" }]
+license = { text = "MIT" }
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

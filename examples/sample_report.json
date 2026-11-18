@@ -1,0 +1,149 @@
+{
+  "summary": {
+    "parsed_lines": 17,
+    "skipped_lines": 2
+  },
+  "firmware_by_dut": {
+    "UWB001": [
+      "1.2.3"
+    ],
+    "UWB002": [
+      "1.2.3"
+    ],
+    "UWB003": [
+      "1.2.2"
+    ]
+  },
+  "results": [
+    {
+      "dut": "UWB001",
+      "test": "ranging_ss_twr",
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "pass_rate": 0.6667,
+      "ranging_error_mm": {
+        "mean": 15.0,
+        "sample_std": 4.24,
+        "max": 18.0,
+        "n": 2
+      },
+      "rssi_dbm": {
+        "min": -94.0,
+        "mean": -77.7,
+        "n": 3
+      },
+      "failure_codes": {
+        "E_TIMEOUT": 1
+      }
+    },
+    {
+      "dut": "UWB001",
+      "test": "rx_sensitivity",
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "pass_rate": 0.6667,
+      "ranging_error_mm": {
+        "mean": null,
+        "sample_std": null,
+        "max": null,
+        "n": 0
+      },
+      "rssi_dbm": {
+        "min": -91.0,
+        "mean": -86.0,
+        "n": 3
+      },
+      "failure_codes": {
+        "E_CRC": 1
+      }
+    },
+    {
+      "dut": "UWB002",
+      "test": "ranging_ss_twr",
+      "total": 3,
+      "passed": 3,
+      "failed": 0,
+      "pass_rate": 1.0,
+      "ranging_error_mm": {
+        "mean": 15.33,
+        "sample_std": 6.51,
+        "max": 22.0,
+        "n": 3
+      },
+      "rssi_dbm": {
+        "min": -73.0,
+        "mean": -69.7,
+        "n": 3
+      },
+      "failure_codes": {}
+    },
+    {
+      "dut": "UWB002",
+      "test": "rx_sensitivity",
+      "total": 3,
+      "passed": 2,
+      "failed": 1,
+      "pass_rate": 0.6667,
+      "ranging_error_mm": {
+        "mean": null,
+        "sample_std": null,
+        "max": null,
+        "n": 0
+      },
+      "rssi_dbm": {
+        "min": -93.0,
+        "mean": -85.7,
+        "n": 3
+      },
+      "failure_codes": {
+        "E_TIMEOUT": 1
+      }
+    },
+    {
+      "dut": "UWB003",
+      "test": "ranging_ss_twr",
+      "total": 3,
+      "passed": 1,
+      "failed": 2,
+      "pass_rate": 0.3333,
+      "ranging_error_mm": {
+        "mean": 41.0,
+        "sample_std": null,
+        "max": 41.0,
+        "n": 1
+      },
+      "rssi_dbm": {
+        "min": -96.0,
+        "mean": -90.0,
+        "n": 3
+      },
+      "failure_codes": {
+        "E_TIMEOUT": 2
+      }
+    },
+    {
+      "dut": "UWB003",
+      "test": "rx_sensitivity",
+      "total": 2,
+      "passed": 1,
+      "failed": 1,
+      "pass_rate": 0.5,
+      "ranging_error_mm": {
+        "mean": null,
+        "sample_std": null,
+        "max": null,
+        "n": 0
+      },
+      "rssi_dbm": {
+        "min": -90.0,
+        "mean": -86.5,
+        "n": 2
+      },
+      "failure_codes": {
+        "E_CRC": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# 虚构示例数据（SYNTHETIC），不对应任何真实产品或测试批次
+# 字段：时间 DUT=设备 FW=固件版本 TEST=测试项 RESULT=结果 [err_mm / rssi_dbm / err_code]
+[2026-01-02 09:00:01] DUT=UWB001 FW=1.2.3 TEST=ranging_ss_twr RESULT=PASS dist_m=1.00 err_mm=12 rssi_dbm=-68
+[2026-01-02 09:00:05] DUT=UWB001 FW=1.2.3 TEST=ranging_ss_twr RESULT=PASS dist_m=2.00 err_mm=-18 rssi_dbm=-71
+[2026-01-02 09:00:09] DUT=UWB001 FW=1.2.3 TEST=ranging_ss_twr RESULT=FAIL err_code=E_TIMEOUT rssi_dbm=-94
+[2026-01-02 09:00:14] DUT=UWB001 FW=1.2.3 TEST=rx_sensitivity RESULT=PASS rssi_dbm=-82
+[2026-01-02 09:00:19] DUT=UWB001 FW=1.2.3 TEST=rx_sensitivity RESULT=PASS rssi_dbm=-85
+[2026-01-02 09:00:24] DUT=UWB001 FW=1.2.3 TEST=rx_sensitivity RESULT=FAIL err_code=E_CRC rssi_dbm=-91
+[2026-01-02 09:01:01] DUT=UWB002 FW=1.2.3 TEST=ranging_ss_twr RESULT=PASS dist_m=1.00 err_mm=9 rssi_dbm=-66
+[2026-01-02 09:01:06] DUT=UWB002 FW=1.2.3 TEST=ranging_ss_twr RESULT=PASS dist_m=2.00 err_mm=22 rssi_dbm=-70
+[2026-01-02 09:01:11] DUT=UWB002 FW=1.2.3 TEST=ranging_ss_twr RESULT=PASS dist_m=3.00 err_mm=-15 rssi_dbm=-73
+[2026-01-02 09:01:16] DUT=UWB002 FW=1.2.3 TEST=rx_sensitivity RESULT=PASS rssi_dbm=-80
+[2026-01-02 09:01:21] DUT=UWB002 FW=1.2.3 TEST=rx_sensitivity RESULT=PASS rssi_dbm=-84
+[2026-01-02 09:01:26] DUT=UWB002 FW=1.2.3 TEST=rx_sensitivity RESULT=FAIL err_code=E_TIMEOUT rssi_dbm=-93
+[2026-01-02 09:02:01] DUT=UWB003 FW=1.2.2 TEST=ranging_ss_twr RESULT=FAIL err_code=E_TIMEOUT rssi_dbm=-95
+[2026-01-02 09:02:06] DUT=UWB003 FW=1.2.2 TEST=ranging_ss_twr RESULT=FAIL err_code=E_TIMEOUT rssi_dbm=-96
+[2026-01-02 09:02:11] DUT=UWB003 FW=1.2.2 TEST=ranging_ss_twr RESULT=PASS dist_m=1.00 err_mm=41 rssi_dbm=-79
+[2026-01-02 09:02:16] DUT=UWB003 FW=1.2.2 TEST=rx_sensitivity RESULT=FAIL err_code=E_CRC rssi_dbm=-90
+[2026-01-02 09:02:21] DUT=UWB003 FW=1.2.2 TEST=rx_sensitivity RESULT=PASS rssi_dbm=-83
+# 下面两行故意写成坏格式，用于验证解析器的跳过计数
+这不是日志
+[bad line without fields]
