@@ -66,7 +66,7 @@ class Group:
 
 
 def parse_log(text: str) -> tuple[dict, dict]:
-    groups: dict[tuple[str, str], Group] = defaultdict(Group)
+    groups: dict[tuple[str, str, str], Group] = defaultdict(Group)
     firmware: dict[str, set] = defaultdict(set)
     skipped = 0
 
@@ -85,7 +85,7 @@ def parse_log(text: str) -> tuple[dict, dict]:
 
         dut, fw, test, result = (fields["DUT"], fields["FW"], fields["TEST"], fields["RESULT"].upper())
         firmware[dut].add(fw)
-        g = groups[(dut, test)]
+        g = groups[(dut, fw, test)]
         g.total += 1
         if result == "PASS":
             g.passed += 1
@@ -107,8 +107,8 @@ def parse_log(text: str) -> tuple[dict, dict]:
         "firmware_by_dut": {dut: sorted(fws) for dut, fws in firmware.items()},
         "results": [],
     }
-    for (dut, test), g in sorted(groups.items()):
-        row = {"dut": dut, "test": test, **g.summarize()}
+    for (dut, fw, test), g in sorted(groups.items()):
+        row = {"dut": dut, "firmware": fw, "test": test, **g.summarize()}
         report["results"].append(row)
     return report, {}
 
@@ -121,14 +121,14 @@ def to_markdown(report: dict) -> str:
     for dut, fws in report["firmware_by_dut"].items():
         lines.append(f"  - {dut}: {', '.join(fws)}")
     lines.append("")
-    lines.append("| DUT | 测试项 | 总数 | 通过 | 失败 | 通过率 | 误差均值(mm) | 误差σ | 最大误差 | RSSI min/均值 | 主要失败码 |")
-    lines.append("|---|---|---|---|---|---|---|---|---|---|---|")
+    lines.append("| DUT | 固件 | 测试项 | 总数 | 通过 | 失败 | 通过率 | 误差均值(mm) | 误差σ | 最大误差 | RSSI min/均值 | 主要失败码 |")
+    lines.append("|---|---|---|---|---|---|---|---|---|---|---|---|")
     for r in report["results"]:
         re_ = r["ranging_error_mm"]
         rs = r["rssi_dbm"]
         codes = ", ".join(f"{k}:{v}" for k, v in sorted(r["failure_codes"].items(), key=lambda x: -x[1])) or "-"
         lines.append(
-            f"| {r['dut']} | {r['test']} | {r['total']} | {r['passed']} | {r['failed']} | "
+            f"| {r['dut']} | {r['firmware']} | {r['test']} | {r['total']} | {r['passed']} | {r['failed']} | "
             f"{r['pass_rate']:.1%} | {re_['mean'] if re_['mean'] is not None else '-'} | "
             f"{re_['sample_std'] if re_['sample_std'] is not None else '-'} | "
             f"{re_['max'] if re_['max'] is not None else '-'} | "

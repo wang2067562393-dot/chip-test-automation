@@ -3,6 +3,7 @@
 > 从 UWB 芯片功能 / 可靠性测试实践中沉淀的通用知识与可复用脚本：固件版本管理、测试日志（Log）自动解析、标准化报告输出。
 > 目标：把"人工翻 Log、手工填 Excel"变成"一条命令产出结构化结果"。
 
+![tests](https://github.com/wang2067562393-dot/chip-test-automation/actions/workflows/tests.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![deps](https://img.shields.io/badge/dependencies-标准库-16A34A)
 ![status](https://img.shields.io/badge/status-学习沉淀中-F59E0B)
@@ -24,9 +25,13 @@ chip-test-automation/
 │   ├── 01-uwb-testing-basics.md   # UWB 测试基础：原理、流程、指标
 │   └── 02-log-driven-test-qa.md   # 日志驱动的测试质量保障思路
 ├── scripts/
-│   └── parse_test_log.py          # 日志解析 + 聚合 + JSON/Markdown 报告
+│   ├── parse_test_log.py          # 日志解析 + 聚合 + JSON/Markdown 报告
+│   └── compare_fw.py              # 跨固件版本通过率配对对比
+├── tests/                         # 单元测试（unittest，CI 在 3.10/3.11/3.12 上运行）
 ├── examples/
-│   └── sample_run.log             # 虚构示例日志
+│   ├── sample_run.log             # 虚构示例日志
+│   ├── sample_report.md/json      # 单批次报告样例
+│   └── sample_compare.md          # 固件版本对比样例
 └── pyproject.toml
 ```
 
@@ -42,7 +47,18 @@ python scripts/parse_test_log.py examples/sample_run.log \
 
 # 只看 Markdown 报告
 python scripts/parse_test_log.py examples/sample_run.log --md
+
+# 跨固件版本对比（可传入多份日志，按 FW 分组算通过率差值）
+python scripts/compare_fw.py examples/sample_run.log --md
 ```
+
+## 测试
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+示例数据上的固件对比结论（1.2.2 → 1.2.3）：测距项通过率 33.3% → 83.3%（+50pp），接收灵敏度 50% → 66.7%（+16.7pp）。注意这是**虚构数据**，仅用于演示工具输出。
 
 用示例数据跑出的报告样例：[sample_report.md](examples/sample_report.md) / [sample_report.json](examples/sample_report.json)。
 

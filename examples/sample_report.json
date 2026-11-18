@@ -17,6 +17,7 @@
   "results": [
     {
       "dut": "UWB001",
+      "firmware": "1.2.3",
       "test": "ranging_ss_twr",
       "total": 3,
       "passed": 2,
@@ -39,6 +40,7 @@
     },
     {
       "dut": "UWB001",
+      "firmware": "1.2.3",
       "test": "rx_sensitivity",
       "total": 3,
       "passed": 2,
@@ -61,6 +63,7 @@
     },
     {
       "dut": "UWB002",
+      "firmware": "1.2.3",
       "test": "ranging_ss_twr",
       "total": 3,
       "passed": 3,
@@ -81,6 +84,7 @@
     },
     {
       "dut": "UWB002",
+      "firmware": "1.2.3",
       "test": "rx_sensitivity",
       "total": 3,
       "passed": 2,
@@ -103,6 +107,7 @@
     },
     {
       "dut": "UWB003",
+      "firmware": "1.2.2",
       "test": "ranging_ss_twr",
       "total": 3,
       "passed": 1,
@@ -125,6 +130,7 @@
     },
     {
       "dut": "UWB003",
+      "firmware": "1.2.2",
       "test": "rx_sensitivity",
       "total": 2,
       "passed": 1,
